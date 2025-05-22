@@ -86,3 +86,33 @@ body {
 .search-bar button:hover {
   background-color: #2563eb;
 }
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-item span {
+  display: block;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.detail-item strong {
+  font-size: 18px;
+  color: #222;
+}
