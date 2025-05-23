@@ -1,21 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Real-Time Weather App</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="weather-container">
-      <h1>Weather App</h1>
-      <input type="text" id="cityInput" placeholder="Enter city name" />
-      <button id="searchBtn">Search</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-cloud-sun"></i>
+                <span>WeatherNow</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#forecast">Forecast</a>
+                <a href="#map">Map</a>
+            </div>
+        </div>
+    </nav>
 
-      <div class="weather-result" id="weatherResult"></div>
-      <div class="error" id="errorMsg"></div>
-    </div>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for a city...">
+                        <button class="location-btn" title="Get current location">
+                            <i class="fas fa-location-dot"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="weather-grid">
+                    <!-- Main Weather Card -->
+                    <div class="main-weather-card">
+                        <div class="weather-info">
+                            <h2 class="city-name">--</h2>
+                            <p class="date">--</p>
+                            <div class="temp-container">
+                                <img src="" alt="weather icon" class="weather-icon">
+                                <div class="temp-info">
+                                    <h1 class="temperature">--°C</h1>
+                                    <p class="description">--</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <i class="fas fa-temperature-high"></i>
+                                <div class="detail-info">
+                                    <span>Feels Like</span>
+                                    <strong class="feels-like">--°C</strong>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-wind"></i>
+                                <div class="detail-info">
+                                    <span>Wind Speed</span>
+                                    <strong class="wind-speed">-- km/h</strong>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-droplet"></i>
+                                <div class="detail-info">
+                                    <span>Humidity</span>
+                                    <strong class="humidity">--%</strong>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-compress-alt"></i>
+                                <div class="detail-info">
+                                    <span>Pressure</span>
+                                    <strong class="pressure">-- hPa</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Info Cards -->
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-header">
+                                <i class="fas fa-sun"></i>
+                                <h3>Sunrise & Sunset</h3>
+                            </div>
+                            <div class="sun-times">
+                                <div class="sun-item">
+                                    <i class="fas fa-sunrise"></i>
+                                    <span class="sunrise">--:--</span>
+                                </div>
+                                <div class="sun-item">
+                                    <i class="fas fa-sunset"></i>
+                                    <span class="sunset">--:--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-header">
+                                <i class="fas fa-temperature-low"></i>
+                                <h3>Min/Max</h3>
+                            </div>
+                            <div class="temp-range">
+                                <div class="temp-item">
+                                    <span>Min</span>
+                                    <strong class="min-temp">--°C</strong>
+                                </div>
+                                <div class="temp-item">
+                                    <span>Max</span>
+                                    <strong class="max-temp">--°C</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="forecast" class="forecast-section">
+            <div class="container">
+                <h2>Weather Forecast</h2>
+                
+                <div class="hourly-forecast">
+                    <h3>Today's Forecast</h3>
+                    <div class="hourly-container"></div>
+                </div>
+
+                <div class="daily-forecast">
+                    <h3>7-Day Forecast</h3>
+                    <div class="daily-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="map-section">
+            <div class="container">
+                <h2>Weather Map</h2>
+                <div class="map-controls">
+                    <button class="map-btn active" data-type="temp">Temperature</button>
+                    <button class="map-btn" data-type="precipitation">Precipitation</button>
+                    <button class="map-btn" data-type="wind">Wind</button>
+                </div>
+                <div id="weather-map"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>WeatherNow</span>
+                </div>
+                <p>© 2024 WeatherNow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
-  </body>
-</html>
+</body>
+</html> 
